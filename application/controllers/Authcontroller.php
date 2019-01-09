@@ -16,4 +16,11 @@ class Authcontroller extends CI_Controller{
         $this->load->view('dashboard');
         $this->load->view('template/footer-home');        
     }
+
+    public function addincome(){
+        $a['data'] = ['title' => 'Add Income'];
+        $this->load->view('template/header-home', $a);
+        $this->load->view('income');
+        $this->load->view('template/footer-home');                
+    }
 }

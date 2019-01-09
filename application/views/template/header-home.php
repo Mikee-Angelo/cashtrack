@@ -114,8 +114,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- Left Menu Start -->
                 <ul class="metismenu" id="side-menu">
                     <li class="menu-title">Main</li>
-                    <li><a href="<?php echo base_url();?>home" class="waves-effect"><i class="dripicons-home"></i>
-                            <span>Home</span></a></li>
+                    <li><a href="<?php echo base_url();?>home" class="waves-effect"><i class="dripicons-home"></i><span>Home</span></a></li>
+                    <li><a href="<?php echo base_url();?>records" class="waves-effect"><i class="dripicons-inbox"></i><span>Records</span></a></li>        
                 </ul>
             </div><!-- Sidebar -->
             <div class="clearfix"></div>
@@ -134,10 +134,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <h4 class="page-title mb-0"><?php echo $data['title'];?></h4>
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="#">Cashtrack</a></li>
-                                        <li class="breadcrumb-item active" aria-current="page">Home</li>
+                                        <li class="breadcrumb-item active" aria-current="page"><?php echo $data['title'];?></li>
                                     </ol>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div><!-- end row -->
+
