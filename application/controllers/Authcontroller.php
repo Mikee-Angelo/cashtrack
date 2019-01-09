@@ -10,10 +10,10 @@ class Authcontroller extends CI_Controller{
         $this->load->view('template/footer-login');
     }
 
-    public function dashboard(){
-        $a['data'] = ['title' => 'Login'];
-        $this->load->view('template/header-dashboard', $a);
+    public function home(){
+        $a['data'] = ['title' => 'Home'];
+        $this->load->view('template/header-home', $a);
         $this->load->view('dashboard');
-        $this->load->view('template/footer-dashboard');        
+        $this->load->view('template/footer-home');        
     }
 }

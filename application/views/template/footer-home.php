@@ -3,7 +3,7 @@
             <!-- End of container-fluid-->
         </div>
         <!-- End of container -->
-        <footer class="footer">© 2018 Foxia <span class="d-none d-sm-inline-block">- Crafted with <i class="mdi mdi-heart text-danger"></i>
+        <footer class="footer">© 2018 Cashtrack <span class="d-none d-sm-inline-block">- Crafted with <i class="mdi mdi-heart text-danger"></i>
                 by Themesbrand.</span></footer>
     </div><!-- ============================================================== -->
     <!-- End Right content here -->
