@@ -54,7 +54,9 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['home'] = 'authcontroller/home';
+$route['register'] = 'authcontroller/register';
 $route['addincome'] = 'authcontroller/addincome';
 $route['addexpense'] = 'authcontroller/addexpense';
 $route['records'] = 'authcontroller/records';
 $route['statistics'] = 'authcontroller/statistics';
+$route['logout'] = 'authcontroller/logout';

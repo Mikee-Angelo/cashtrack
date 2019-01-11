@@ -11,38 +11,46 @@
         <div class="card">
             <div class="card-body">
                 <div class="p-3">
-                    <div class="float-right text-right">
+                    <div class="">
                         <h4 class="font-18 mt-3 m-b-5">Welcome Back !</h4>
                         <p class="text-muted">Sign in to continue to Cashtrackit.</p>
-                    </div><a href="index.html" class="logo-admin"><img src="<?php echo base_url();?>assets/images/logo_dark.png" height="26"
-                            alt="logo"></a>
+                    </div>
+                    <!--<a href="index.html" class="logo-admin"><img src="assets/images/logo_dark.png" height="26"
+                            alt="logo"></a>-->
                 </div>
                 <div class="p-3">
-                    <!--<form class="form-horizontal m-t-10" action="https://themesbrand.com/foxia/green-2/index.html">-->
                     <?php echo form_open(''); ?>
-                        <div class="form-group"><label for="username">Username</label> <input type="text" class="form-control"
-                                id="username" placeholder="Enter username"></div>
-                        <div class="form-group"><label for="userpassword">Password</label> <input type="password" class="form-control"
-                                id="userpassword" placeholder="Enter password"></div>
+                        <div class="form-group">
+                            <label for="log_user">Username</label> 
+                            <input type="text" class="form-control <?php echo (form_error('log_user') ? 'is-invalid' : '');?>" name="log_user" value="<?php echo set_value('log_user');?>" placeholder="Enter username">
+                            <div class="invalid-feedback">
+                                <?php echo form_error('log_user'); ?>
+                            </div>        
+                        </div>
+                        <div class="form-group">
+                            <label for="log_pwd">Password</label> 
+                            <input type="password" class="form-control <?php echo (form_error('log_pwd') ? 'is-invalid' : '');?>" name="log_pwd" placeholder="Enter password">
+                            <div class="invalid-feedback">
+                                <?php echo form_error('log_pwd'); ?>
+                            </div>   
+                        
+                        </div>
                         <div class="form-group row m-t-30">
                             <div class="col-sm-6">
-                                <div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input"
-                                        id="customControlInline"> <label class="custom-control-label" for="customControlInline">Remember
-                                        me</label></div>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customControlInline"> 
+                                    <label class="custom-control-label" for="customControlInline">Remember me</label>
+                                </div>
                             </div>
-                            <div class="col-sm-6 text-right"><button class="btn btn-primary w-md waves-effect waves-light"
-                                    type="submit">Log In</button></div>
+                            <div class="col-sm-6 text-right">
+                                <button class="btn btn-primary w-md waves-effect waves-light" name="log_submit" type="submit">Log In</button>
+                            </div>
                         </div>
-                        <div class="form-group m-t-30 mb-0 row">
-                            <div class="col-12 text-center"><a href="pages-recoverpw.html" class="text-muted"><i class="mdi mdi-lock"></i>
-                                    Forgot your password?</a></div>
-                        </div>
-                        <?php echo form_close(); ?>
+                    <?php echo form_close(); ?>
                 </div>
             </div>
         </div>
         <div class="m-t-40 text-center text-white-50">
-            <p>Don't have an account ? <a href="pages-register.html" class="font-600 text-white">Signup Now</a></p>
-            <p>© 2018 Foxia. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+            <p>Don't have an account ? <a href="<?php echo base_url();?>register" class="font-600 text-white">Signup Now</a></p>
         </div>
     </div><!-- end wrapper-page -->
