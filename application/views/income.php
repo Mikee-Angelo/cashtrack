@@ -1,14 +1,10 @@
 <?php
-var_dump($d[1]);
-
-    // foreach($d as $key => $row){
-    //     var_dump($d);
-    // }
+        echo $this->session->flashdata('regfalse');
+        echo $this->session->flashdata('regtrue');
 ?>
 <div class="card col-sm-6 mx-auto">
     <div class="card-body">
         <?php echo form_open('addincome'); ?>
-
             <div class="form-group">
                 <label for="date_income"><i class="dripicons-calendar mr-2"></i>Date</label>
                 <input class="form-control <?php echo (form_error('date_income') ? 'is-invalid' : '');?>" type="date" name="date_income" id="date_income"  value="<?php echo set_value('date_income');?>" required>
@@ -19,7 +15,7 @@ var_dump($d[1]);
 
             <div class="form-group">
                 <label for="time_income" class="col-form-label"><i class="fa fa-clock-o mr-2"></i>Time</label>
-                <input class="form-control <?php echo (form_error('time_income') ? 'is-invalid' : '');?>" type="time" name="date_income" id="time_income"  value="<?php echo set_value('date_income');?>" type="time" name="time_income" id="time_income" value="<?php echo set_value('time_income');?>" required>
+                <input class="form-control <?php echo (form_error('time_income') ? 'is-invalid' : '');?>" type="time" name="time_income" id="time_income"  value="<?php echo set_value('time_income');?>" type="time" name="time_income" id="time_income" value="<?php echo set_value('time_income');?>" required>
                 <div class="invalid-feedback">
                     <?php echo form_error('time_income'); ?>
                 </div>   
@@ -27,7 +23,7 @@ var_dump($d[1]);
 
             <div class="form-group">
                 <label><i class="mdi mdi-coin mr-2"></i>Amount (PHP)</label> 
-                <input type="number" name="amount_income" value="<?php echo set_value('amount_income');?>" class="form-control <?php echo (form_error('time_income') ? 'is-invalid' : '');?>" type="number" name="amount_income" id="amount_income" value="<?php echo set_value('amount_income');?>" required>
+                <input type="number" name="amount_income" value="<?php echo set_value('amount_income');?>" name="amount_income" class="form-control <?php echo (form_error('amount_income') ? 'is-invalid' : '');?>" type="number" name="amount_income" id="amount_income" value="<?php echo set_value('amount_income');?>" required>
                 <div class="invalid-feedback">
                     <?php echo form_error('amount_income'); ?>
                 </div>  
@@ -45,8 +41,8 @@ var_dump($d[1]);
                 <label><i class="fa fa-list-alt mr-2"></i>Categories</label>
                 <select class="form-control" name="category_income">
                     <?php 
-                        foreach($d as $key => $row){
-                            echo "<option value=".$row[$key][0].">".$row[$key][1]."</option>";
+                        foreach($d['ic'] as $key => $row){
+                            echo "<option value='".$d['ic'][$key][1]."' >".ucwords($d['ic'][$key][1])."</option>";
                         }
                     ?>
                 </select>

@@ -91,6 +91,7 @@ class Authcontroller extends CI_Controller{
         if($this->session->has_userdata('isLoggedIn') !== true){
             redirect('');
         }
+
         $cat_income = $this->authmodel->showIncCat($this->session->userdata('user_id'));
 
         $a['data'] = ['title' => 'Add Income'];
@@ -99,13 +100,15 @@ class Authcontroller extends CI_Controller{
         $this->form_validation->set_rules('date_income', 'Date', 'required|trim');
         $this->form_validation->set_rules('time_income', 'Time', 'required|trim');
         $this->form_validation->set_rules('amount_income', 'Amount', 'required|trim');
-        $this->form_validation->set_rules('note_income', 'Note', 'required|trim');
+        $this->form_validation->set_rules('note_income', 'Note', 'trim');
         $this->form_validation->set_rules('category_income', 'Category', 'required|trim');
 
         if($this->form_validation->run() === false){
+
             $this->load->view('template/header-home', $a);
             $this->load->view('income', $b);
-            $this->load->view('template/footer-home');                 
+            $this->load->view('template/footer-home');  
+
         }else{
             $di = $this->input->post('date_income');
             $ti = $this->input->post('time_income');            
@@ -117,8 +120,18 @@ class Authcontroller extends CI_Controller{
 
             $mod = $this->authmodel->addIncomeData($data);
 
-            if($mod !== false){
-
+            if($mod == true){
+                $this->session->set_flashdata('regtrue', '<div class="alert alert-success bg-success text-white" role="alert"><strong>Nice! </strong> Transaction successfully inserted</div>'); 
+                
+                $this->load->view('template/header-home', $a);
+                $this->load->view('income', $b);
+                $this->load->view('template/footer-home'); 
+            }else{
+                $this->session->set_flashdata('regfalse', '<div class="alert alert-danger bg-danger text-white" role="alert"><strong>Oops! </strong> Error Occured</div>');
+                
+                $this->load->view('template/header-home', $a);
+                $this->load->view('income', $b);
+                $this->load->view('template/footer-home'); 
             }
         }
          
