@@ -1,3 +1,10 @@
+<?php
+var_dump($d[1]);
+
+    // foreach($d as $key => $row){
+    //     var_dump($d);
+    // }
+?>
 <div class="card col-sm-6 mx-auto">
     <div class="card-body">
         <?php echo form_open('addincome'); ?>
@@ -37,9 +44,11 @@
             <div class="form-group">
                 <label><i class="fa fa-list-alt mr-2"></i>Categories</label>
                 <select class="form-control" name="category_income">
-                    <option value="allowance" <?php echo (set_value('category_income') == 'allowance' ? 'selected' : '' ); ?>>Allowance</option>
-                    <option value="salary" <?php echo (set_value('category_income') == 'salary' ? 'selected' : '' ); ?>>Salary</option>
-                    <option value="bonus" <?php echo (set_value('category_income') == 'bonus' ? 'selected' : '' ); ?>>Bonus</option>
+                    <?php 
+                        foreach($d as $key => $row){
+                            echo "<option value=".$row[$key][0].">".$row[$key][1]."</option>";
+                        }
+                    ?>
                 </select>
                 <div class="invalid-feedback">
                     <?php echo form_error('category_income'); ?>

@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Authcontroller extends CI_Controller{
-
+    
     public function __construct(){
         parent::__construct();
 
@@ -91,9 +91,11 @@ class Authcontroller extends CI_Controller{
         if($this->session->has_userdata('isLoggedIn') !== true){
             redirect('');
         }
+        $cat_income = $this->authmodel->showIncCat($this->session->userdata('user_id'));
 
         $a['data'] = ['title' => 'Add Income'];
-        
+        $b['d'] = ['ic' => $cat_income];
+
         $this->form_validation->set_rules('date_income', 'Date', 'required|trim');
         $this->form_validation->set_rules('time_income', 'Time', 'required|trim');
         $this->form_validation->set_rules('amount_income', 'Amount', 'required|trim');
@@ -102,10 +104,22 @@ class Authcontroller extends CI_Controller{
 
         if($this->form_validation->run() === false){
             $this->load->view('template/header-home', $a);
-            $this->load->view('income');
+            $this->load->view('income', $b);
             $this->load->view('template/footer-home');                 
         }else{
-            
+            $di = $this->input->post('date_income');
+            $ti = $this->input->post('time_income');            
+            $ai = $this->input->post('amount_income');
+            $ni = $this->input->post('note_income');            
+            $ci = $this->input->post('category_income');     
+
+            $data = ['user_id' => $this->session->userdata('user_id'), 'income_date' => $di, 'income_time' => $ti, 'income_amount' => $ai, 'income_note' => $ni, 'income_cat' => $ci];
+
+            $mod = $this->authmodel->addIncomeData($data);
+
+            if($mod !== false){
+
+            }
         }
          
     }

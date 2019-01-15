@@ -9,7 +9,6 @@ class Authmodel extends CI_Model{
 
         if($a == 0){
             $q = $this->db->insert('users', $data);
-
             if($q == true){
                 return true;
             }else{
@@ -30,12 +29,44 @@ class Authmodel extends CI_Model{
             $row = $a->row();
 
             if(isset($row)){
+                
                 $datas  = ['user_id' => $row->user_id, 'name' => $row->name, 'username' => $row->username];
+
+                if($row->status == 0){
+                    $di = $this->db->get('def_inc_cat');
+
+                    foreach($di->result_array() as $r){
+                        $di_data = ['ic_user_id' => $row->user_id, 'ic_name' => $r['def_inc_name'], 'ic_icon' => $r['def_inc_logo']];    
+                        $this->db->insert('income_cat', $di_data);        
+                    }   
+                }
+
+                $this->db->where('user_id', $row->user_id);
+                $this->db->update('users', ['status' => 1]);
 
                 return $datas;
             }
         }else{
             return false;
         }
+    }
+
+// INCOME
+
+    public function showIncCat($id){
+        $this->db->where('ic_user_id', $id);
+        $a = $this->db->get('income_cat');
+        $data = [];
+
+        foreach($a->result_array() as $row){
+            $data[] = [$row['ic_id'], $row['ic_name'], $row['ic_icon']];
+        }
+
+        return $data;
+        var_dump($data);
+    }
+
+    public function addIncomeData($data){
+
     }
 }
