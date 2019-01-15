@@ -68,11 +68,19 @@ class Authmodel extends CI_Model{
 
     public function addIncomeData($data){
         $a = $this->db->insert('trans_income', $data);
-        
+
         if($a){
            return true; 
         }else {
             return false;
         }
     }
+
+    // public function showIncome($id){
+    //     $this->db->where('user_id', $id);
+    //     $q = $this->db->get('trans_income');
+    //     $data = [];
+
+    //     foreach($q->result_array())
+    // }
 }

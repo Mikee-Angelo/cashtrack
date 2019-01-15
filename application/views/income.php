@@ -7,7 +7,7 @@
         <?php echo form_open('addincome'); ?>
             <div class="form-group">
                 <label for="date_income"><i class="dripicons-calendar mr-2"></i>Date</label>
-                <input class="form-control <?php echo (form_error('date_income') ? 'is-invalid' : '');?>" type="date" name="date_income" id="date_income"  value="<?php echo set_value('date_income');?>" required>
+                <input class="form-control <?php echo (form_error('date_income') ? 'is-invalid' : '');?>" type="date" name="date_income" id="date_income"  value="<?php echo set_value('date_income');?>">
                 <div class="invalid-feedback">
                     <?php echo form_error('date_income'); ?>
                 </div>            
@@ -15,7 +15,7 @@
 
             <div class="form-group">
                 <label for="time_income" class="col-form-label"><i class="fa fa-clock-o mr-2"></i>Time</label>
-                <input class="form-control <?php echo (form_error('time_income') ? 'is-invalid' : '');?>" type="time" name="time_income" id="time_income"  value="<?php echo set_value('time_income');?>" type="time" name="time_income" id="time_income" value="<?php echo set_value('time_income');?>" required>
+                <input class="form-control <?php echo (form_error('time_income') ? 'is-invalid' : '');?>" type="time" name="time_income" id="time_income"  value="<?php echo set_value('time_income');?>" type="time" name="time_income" id="time_income" value="<?php echo set_value('time_income');?>">
                 <div class="invalid-feedback">
                     <?php echo form_error('time_income'); ?>
                 </div>   
@@ -23,7 +23,7 @@
 
             <div class="form-group">
                 <label><i class="mdi mdi-coin mr-2"></i>Amount (PHP)</label> 
-                <input type="number" name="amount_income" value="<?php echo set_value('amount_income');?>" name="amount_income" class="form-control <?php echo (form_error('amount_income') ? 'is-invalid' : '');?>" type="number" name="amount_income" id="amount_income" value="<?php echo set_value('amount_income');?>" required>
+                <input type="number" name="amount_income" value="<?php echo set_value('amount_income');?>" name="amount_income" class="form-control <?php echo (form_error('amount_income') ? 'is-invalid' : '');?>" type="number" name="amount_income" id="amount_income" value="<?php echo set_value('amount_income');?>">
                 <div class="invalid-feedback">
                     <?php echo form_error('amount_income'); ?>
                 </div>  

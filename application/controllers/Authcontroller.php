@@ -61,16 +61,10 @@ class Authcontroller extends CI_Controller{
             $d = $this->authmodel->authregister($data);
             if($d === 1){
                 $this->session->set_flashdata('regtrue', '<div class="alert alert-danger bg-danger text-white" role="alert"><strong>Oops! </strong> Username already taken</div>');
-                               
-                $this->load->view('template/header-login', $a);
-                $this->load->view('register');
-                $this->load->view('template/footer-login');  
+                redirect('register');
             }elseif($d == true){
                 $this->session->set_flashdata('regtrue', '<div class="alert alert-info bg-primary text-white" role="alert"><strong>Hooray! </strong> You successfully created an account</div>');
-
-                $this->load->view('template/header-login', $a);
-                $this->load->view('register');
-                $this->load->view('template/footer-login');  
+                register('register');
 
             }
         }
@@ -91,7 +85,6 @@ class Authcontroller extends CI_Controller{
         if($this->session->has_userdata('isLoggedIn') !== true){
             redirect('');
         }
-
         $cat_income = $this->authmodel->showIncCat($this->session->userdata('user_id'));
 
         $a['data'] = ['title' => 'Add Income'];
@@ -120,19 +113,10 @@ class Authcontroller extends CI_Controller{
 
             $mod = $this->authmodel->addIncomeData($data);
 
-            if($mod == true){
+            if($mod === true){
                 $this->session->set_flashdata('regtrue', '<div class="alert alert-success bg-success text-white" role="alert"><strong>Nice! </strong> Transaction successfully inserted</div>'); 
-                
-                $this->load->view('template/header-home', $a);
-                $this->load->view('income', $b);
-                $this->load->view('template/footer-home'); 
-            }else{
-                $this->session->set_flashdata('regfalse', '<div class="alert alert-danger bg-danger text-white" role="alert"><strong>Oops! </strong> Error Occured</div>');
-                
-                $this->load->view('template/header-home', $a);
-                $this->load->view('income', $b);
-                $this->load->view('template/footer-home'); 
-            }
+                redirect('addincome');
+             }
         }
          
     }
