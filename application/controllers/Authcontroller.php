@@ -8,7 +8,7 @@ class Authcontroller extends CI_Controller{
 
         $this->load->model('authmodel');
     }
-
+    //login page 
     public function index(){
         if($this->session->has_userdata('isLoggedIn') == true){
             redirect('home');
@@ -36,7 +36,7 @@ class Authcontroller extends CI_Controller{
             }
         }
     }
-
+    //register page
     public function register(){
         if($this->session->has_userdata('isLoggedIn') == true){
             redirect('home');
@@ -70,7 +70,7 @@ class Authcontroller extends CI_Controller{
         }
         
     }
-
+    //homepage
     public function home(){
         if($this->session->has_userdata('isLoggedIn') !== true){
             redirect('');
@@ -135,20 +135,14 @@ class Authcontroller extends CI_Controller{
         $this->load->view('template/footer-home');           
     }
 
-    public function stats_income(){
-        $a['data'] = ['title' => 'Statistics - Income'];
+    public function statistics(){
+        $a['data'] = ['title' => 'Statistics'];
         $this->load->view('template/header-home', $a);
-        $this->load->view('income_stat');
+        $this->load->view('statistics');
         $this->load->view('template/footer-home');                
     }
 
-    public function stats_expense(){
-        $a['data'] = ['title' => 'Statistics - Income'];
-        $this->load->view('template/header-home', $a);
-        $this->load->view('expense_stat');
-        $this->load->view('template/footer-home');                
-    }
-    
+    // get expense data
     public function logout(){
         $this->session->sess_destroy();
         redirect('');

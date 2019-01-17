@@ -58,6 +58,5 @@ $route['register'] = 'authcontroller/register';
 $route['addincome'] = 'authcontroller/addincome';
 $route['addexpense'] = 'authcontroller/addexpense';
 $route['records'] = 'authcontroller/records';
-$route['statincome'] = 'authcontroller/stats_income';
-$route['statexpense'] = 'authcontroller/stats_expense';
+$route['statistics'] = 'authcontroller/statistics';
 $route['logout'] = 'authcontroller/logout';

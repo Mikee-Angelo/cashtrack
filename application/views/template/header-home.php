@@ -103,25 +103,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li><a href="<?php echo base_url();?>addincome" class="waves-effect"><i class="fa fa-level-up"></i><span>Add Income</span></a></li>   
                     <li><a href="<?php echo base_url();?>addexpense" class="waves-effect"><i class="fa fa-cart-arrow-down"></i><span>Add Expenses</span></a></li>
                     <li><a href="<?php echo base_url();?>records" class="waves-effect"><i class="dripicons-inbox"></i><span>Records</span></a></li>   
-
-                    <li><a href="<?php echo base_url();?>categories" class="waves-effect"><i class="fa fa-area-chart"></i><span>Categories</span></a></li>  
-                    <li>
-                        <a href="javascript:void(0);" class="waves-effect" aria-expanded="false">
-                            <i class="dripicons-message"></i>
-                            <span> Statistics <span class="float-right menu-arrow">
-                                <i class="mdi mdi-chevron-right"></i>
-                                </span>
-                            </span>
-                            </a>
-                        <ul class="submenu collapse" aria-expanded="false" style="height: 0px;">
-                            <li>
-                                <a href="<?php echo base_url();?>statincome">Income</a>
-                            </li>
-                            <li>
-                                <a href="<?php echo base_url();?>statexpense">Expenses</a>
-                            </li>
-                        </ul>
-                    </li>                          
+                    <li><a href="<?php echo base_url();?>categories" class="waves-effect"><i class="fa fa-area-chart"></i><span>Categories</span></a></li>     
+                    <li><a href="<?php echo base_url();?>statistics" class="waves-effect"><i class="fa fa-area-chart"></i><span>Statistics</span></a></li>                         
                 </ul>
             </div><!-- Sidebar -->
             <div class="clearfix"></div>
